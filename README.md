@@ -6,6 +6,11 @@ notification. Clicking the notification will bring you straight to the page
 where you can buy tickets. 
 
 
+## Screenshot
+
+![notification](screenshots/notification.png)  
+
+
 ## Instructions
 
 1. Install [PhantomJS](http://phantomjs.org/) and 
