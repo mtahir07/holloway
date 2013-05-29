@@ -10,6 +10,11 @@ Clicking the notification will bring you straight to the page where you can buy
 tickets. 
 
 
+## Requirements
+
+* Mac OS X 10.8
+
+
 ## Screenshot
 
 ![notification](screenshots/notification.png)  
