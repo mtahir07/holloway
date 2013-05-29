@@ -29,29 +29,39 @@ notification.
 
 1. `chmod +x check`
 
-1. Find out where the casperjs binary lives: 
+1. Find out which directory holds the CasperJS binary:
 
     ```bash
     $ dirname `which casperjs`
     /usr/local/bin
     ```
 
-    And also where the terminal-notifier binary lives: 
+    Do the same for terminal-notifier:
 
     ```bash
-    $ which terminal-notifier
-    /Users/yiqing/.rvm/rubies/ruby-1.9.3-p392/bin/terminal-notifier
+    $ dirname `which terminal-notifier`
+    /Users/yiqing/.rvm/rubies/ruby-1.9.3-p392/bin
     ```
 
-1. `crontab -e`, then add a frequency, the directory containing the CasperJS
-   binary (from the previous step), and the *absolute* path to the `caller` 
-   file. 
+1. Create a cron job for the `check` script. 
+
+    First do: 
+    
+    ```bash
+    crontab -e
+    ````
+    
+    This will open up the crontab, where you should indicate a frequency, 
+    add the directories containing the CasperJS and terminal-notifier binaries
+    to your PATH, and finally execute the `check` file using its absolute
+    path (the `> /dev/null` just makes sure that you don't get mail every time
+    the script runs): 
 
     ```bash
     0 14 * * * PATH="$PATH:/usr/local/bin/:/Users/yiqing/.rvm/rubies/ruby-1.9.3-p392/bin/" ~/Repos/holloway/check > /dev/null
     ```
 
-    This will run the script at 2pm every day. 
+    In the above example, the script is run at 2pm every day. 
 
 
 ## References
