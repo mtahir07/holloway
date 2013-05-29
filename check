@@ -28,7 +28,8 @@ casperjs "$SCRIPT_PATH/tso.js"
 doPrompt=$?
 
 if [[ $doPrompt -eq 0 ]] ; then                                                    
-    terminal-notifier -message "$(cat details.txt)" -title "$(cat title.txt)" -open "$(cat buyUrl.txt)"
+    terminal-notifier -message "$(cat concert/details.txt)" \
+        -title "$(cat concert/title.txt)" -open "$(cat concert/buyUrl.txt)"
 else                                                                        
     exit 1
 fi  

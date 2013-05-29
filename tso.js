@@ -20,14 +20,14 @@ casper.start(url, function() {
     });
     var buyUrlComplete = "http://www.tso.ca" + buyUrl;
 
-    var nameFile = "title.txt";
+    var nameFile = "concert/title.txt";
     fs.write(nameFile, title, 'w');
 
     var concertDetails = performances + "\n" + ticketPrice;
-    var detailsFile = "details.txt";
+    var detailsFile = "concert/details.txt";
     fs.write(detailsFile, concertDetails, 'w');
 
-    var filename = "buyUrl.txt";
+    var filename = "concert/buyUrl.txt";
     fs.write(filename, buyUrlComplete, 'w');
 
   }, function onTimeout() {
