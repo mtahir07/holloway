@@ -83,5 +83,5 @@ tickets.
 
 * [terminal-notifier](https://github.com/alloy/terminal-notifier)
 * [How to Create a Cron Job (Scheduled Task) for Your Website or Blog](http://www.thesitewizard.com/general/set-cron-job.shtml)
-* [tsoundcheck FAQ](http://www.tso.ca/tsoundcheck/FAQ.aspx#FAQ-6)
+* [tsoundcheck FAQ](http://www.tso.ca/tsoundcheck/FAQ.aspx)
 
