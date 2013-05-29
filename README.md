@@ -23,7 +23,7 @@ tickets.
 ## Instructions
 
 1. Install [PhantomJS](http://phantomjs.org/) and 
-   [CasperJS](http://casperjs.org/) using Homebrew:
+   [CasperJS](http://casperjs.org/) using [Homebrew](http://mxcl.github.io/homebrew/):
 
     ```bash
     $ brew update && brew install phantomjs
