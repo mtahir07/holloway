@@ -5,6 +5,7 @@ var url = "http://www.tso.ca/tsoundcheck/default.aspx"
 
 casper.start(url, function() {
   this.waitFor(function check() {
+    this.echo("Checking the tsoundcheck site...\n");
     return this.getCurrentUrl() == url;
   }, function then() {
     var titleSelector = ".CheapTicketListing .eventInfo .title";
@@ -13,21 +14,24 @@ casper.start(url, function() {
     var performances = this.getHTML(perfSelector).trim();
     var ticketPrice = this.getHTML("#CheapTickets h2").trim();
 
-    this.echo(title);
-    this.echo(performances);
-    this.echo(ticketPrice);
-
     var buyUrl = this.evaluate(function() {
       var buyTicketsSelector = ".CheapTicketListing .eventInfo a";
       return __utils__.findOne(buyTicketsSelector).getAttribute("href");
     });
     var buyUrlComplete = "http://www.tso.ca" + buyUrl;
 
-    var filename = "buyTicketUrl.txt";
+    var nameFile = "title.txt";
+    fs.write(nameFile, title, 'w');
+
+    var concertDetails = performances + "\n" + ticketPrice;
+    var detailsFile = "details.txt";
+    fs.write(detailsFile, concertDetails, 'w');
+
+    var filename = "buyUrl.txt";
     fs.write(filename, buyUrlComplete, 'w');
 
   }, function onTimeout() {
-    this.echo("URL timed out.");
+    this.die("URL timed out.", 1);
   });
 });
 

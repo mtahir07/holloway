@@ -1,8 +1,6 @@
 #!/bin/bash
 
-casperjs=`which casperjs`
-pushd `dirname "$0"` > /dev/null
-SCRIPT_PATH=`pwd -P`
+set -eu
 
 function buyPrompt {
     prompt="\nGo to buy tickets? (y/n) " 
@@ -22,13 +20,15 @@ function buyPrompt {
     fi
 }
 
-echo
-$casperjs $SCRIPT_PATH/tso.js
+pushd `dirname "$0"` > /dev/null
+SCRIPT_PATH=`pwd -P`
+
+casperjs "$SCRIPT_PATH/tso.js"
 
 doPrompt=$?
 
 if [[ $doPrompt -eq 0 ]] ; then                                                    
-    buyPrompt
+    terminal-notifier -message "$(cat details.txt)" -title "$(cat title.txt)" -open "$(cat buyUrl.txt)"
 else                                                                        
     exit 1
 fi  
