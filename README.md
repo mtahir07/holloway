@@ -30,7 +30,7 @@ tickets.
     $ brew install casperjs
     ```
 
-1. Install Terminal Notifier: 
+1. Install [terminal-notifier](https://github.com/alloy/terminal-notifier):
 
     ```bash
     $ sudo gem install terminal-notifier
@@ -42,7 +42,11 @@ tickets.
     Installing RDoc documentation for terminal-notifier-1.4.2...
     ```
 
-1. `chmod +x check`
+1. Make the `check` script executable:
+
+    ```bash
+    $ chmod +x check
+    ```
 
 1. Find out which directory holds the CasperJS binary:
 
