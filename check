@@ -1,0 +1,35 @@
+#!/bin/bash
+
+casperjs=`which casperjs`
+pushd `dirname "$0"` > /dev/null
+SCRIPT_PATH=`pwd -P`
+
+function buyPrompt {
+    prompt="\nGo to buy tickets? (y/n) " 
+    echo -e -n "$prompt" 
+    read buy_ticket
+
+    while [[ "$buy_ticket" != "y" && "$buy_ticket" != "n" ]] ; do
+        echo "That was not a valid answer."
+        echo -e -n "$prompt"
+        read buy_ticket
+    done
+
+    if [[ "$buy_ticket" == "y" ]] ; then
+        open `cat buyTicketUrl.txt`
+    else
+        exit 0
+    fi
+}
+
+echo
+$casperjs $SCRIPT_PATH/tso.js
+
+doPrompt=$?
+
+if [[ $doPrompt -eq 0 ]] ; then                                                    
+    buyPrompt
+else                                                                        
+    exit 1
+fi  
+
