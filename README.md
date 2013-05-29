@@ -2,7 +2,8 @@
 
 A script that you can run as a cron job check the tsoundcheck website, pull the 
 information for on-sale concerts (usually for $14!), and display it in an OS X
-notification. 
+notification. Clicking the notification will bring you straight to the page
+where you can buy tickets. 
 
 
 ## Instructions
