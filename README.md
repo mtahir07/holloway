@@ -1,9 +1,13 @@
 # Holloway
 
-A script that you can run as a cron job check the tsoundcheck website, pull the 
-information for on-sale concerts (usually for $14!), and display it in an OS X
-notification. Clicking the notification will bring you straight to the page
-where you can buy tickets. 
+[tsoundcheck](http://www.tso.ca/tsoundcheck/default.aspx) is a program for 
+people aged 15 to 35 to buy tickets to Toronto Symphony Orchestra concerts at 
+$14 per ticket. 
+
+This script, which is run as a cron job, checks the tsoundcheck website, pulls
+the information for on-sale concerts, and displays it in an OS X notification. 
+Clicking the notification will bring you straight to the page where you can buy 
+tickets. 
 
 
 ## Screenshot
@@ -74,4 +78,5 @@ where you can buy tickets.
 
 * [terminal-notifier](https://github.com/alloy/terminal-notifier)
 * [How to Create a Cron Job (Scheduled Task) for Your Website or Blog](http://www.thesitewizard.com/general/set-cron-job.shtml)
+* [tsoundcheck FAQ](http://www.tso.ca/tsoundcheck/FAQ.aspx#FAQ-6)
 
