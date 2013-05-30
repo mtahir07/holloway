@@ -8,6 +8,7 @@ casper.start(url, function() {
     this.echo("Checking the tsoundcheck site...\n");
     return this.getCurrentUrl() == url;
   }, function then() {
+    this.captureSelector("concert/screenshot.png", "#CheapTickets");
     var titleSelector = ".CheapTicketListing .eventInfo .title";
     var title = this.getHTML(titleSelector).trim();
     var perfSelector = ".CheapTicketListing .eventInfo .performances div";
