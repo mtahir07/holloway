@@ -2,10 +2,9 @@ var casper = require("casper").create();
 var fs = require("fs");
 
 var url = "http://www.tso.ca/tsoundcheck/default.aspx"
-
 casper.start(url, function() {
   this.waitFor(function check() {
-    this.echo("Checking the tsoundcheck site...\n");
+    this.echo("\nChecking the tsoundcheck site...\n");
     return this.getCurrentUrl() == url;
 
   }, function then() {
@@ -20,8 +19,10 @@ casper.start(url, function() {
 
     for (var c = 1 ; c <= listingCount ; c++) {
       var concertNumber = ".CheapTicketListing:nth-of-type(" + c + ") .eventInfo ";
+
       var titleSelector = concertNumber + ".title";
-      var title = this.getHTML(titleSelector).trim();
+      var title = this.getHTML(titleSelector).trim().replace(/&amp;/g, '&');
+
       var perfSelector = concertNumber + ".performances div";
       var performances = this.getHTML(perfSelector).trim();
 
