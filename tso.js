@@ -29,7 +29,6 @@ casper.start(url, function() {
       var buyTicketsSelector = concertNumber + "a";
       var buyUrl = this.getElementAttribute(buyTicketsSelector, "href");
       var buyUrlComplete = "http://www.tso.ca" + buyUrl;
-      this.echo(buyUrlComplete);
 
       var titleFile = "concerts/" + c + "/title.txt";
       fs.write(titleFile, title, 'w');
