@@ -22,14 +22,27 @@ function buyPrompt {
 
 pushd `dirname "$0"` > /dev/null
 SCRIPT_PATH=`pwd -P`
+CONCERTS_PATH="$SCRIPT_PATH/concerts"
+
+# remove old listings
+rm -rf concerts/*
 
 casperjs "$SCRIPT_PATH/tso.js"
 
 doPrompt=$?
 
 if [[ $doPrompt -eq 0 ]] ; then                                                    
-    terminal-notifier -message "$(cat concert/details.txt)" \
-        -title "$(cat concert/title.txt)" -open "$(cat concert/buyUrl.txt)"
+    cd "$CONCERTS_PATH"
+    concert_count_spaces="$(find ./*/ -type d -print | wc -l)"
+    concert_count="${concert_count_spaces//[[:space:]]}"
+
+    for c in $(find . ! -name . -type d) ; do
+        cd "$CONCERTS_PATH"
+        cd $c
+        terminal-notifier -message "$(cat performances.txt)" \
+            -title "$(cat title.txt)" -open "$(cat buyUrl.txt)"
+        sleep 5
+    done
 else                                                                        
     exit 1
 fi  
