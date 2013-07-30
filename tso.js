@@ -8,7 +8,11 @@ casper.start(url, function() {
     return this.getCurrentUrl() == url;
 
   }, function then() {
-    this.captureSelector("concerts/screenshot.png", "#CheapTickets");
+    try {
+      this.captureSelector("concerts/screenshot.png", "#CheapTickets");
+    } catch(CasperError) {
+      this.die("\nNo listings found.\n");
+    }
 
     var listingCount = this.evaluate(function() {
       return document.querySelectorAll(".CheapTicketListing").length;
