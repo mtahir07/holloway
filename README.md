@@ -13,6 +13,8 @@ tickets.
 ## Requirements
 
 * Mac OS X 10.8
+* CasperJS 1.0.2
+* PhantomJS 1.9.0
 
 
 ## Screenshot
