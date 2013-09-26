@@ -40,7 +40,8 @@ if [[ $doPrompt -eq 0 ]] ; then
         cd "$CONCERTS_PATH"
         cd $c
         terminal-notifier -message "$(cat performances.txt)" \
-            -title "$(cat title.txt)" -open "$(cat buyUrl.txt)"
+            -title "$(cat title.txt)" -open "$(cat buyUrl.txt)" \
+            -sound default
         sleep 5
     done
 else                                                                        
