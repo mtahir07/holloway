@@ -35,19 +35,12 @@ tickets.
 1. Install [terminal-notifier](https://github.com/alloy/terminal-notifier):
 
     ```bash
-    $ sudo gem install terminal-notifier
+    ysim:~$ sudo gem install terminal-notifier
     Password:
-    Fetching: terminal-notifier-1.4.2.gem (100%)
-    Successfully installed terminal-notifier-1.4.2
+    Successfully installed terminal-notifier-1.5.1
     1 gem installed
-    Installing ri documentation for terminal-notifier-1.4.2...
-    Installing RDoc documentation for terminal-notifier-1.4.2...
-    ```
-
-1. Make the `check` script executable:
-
-    ```bash
-    $ chmod +x check
+    Installing ri documentation for terminal-notifier-1.5.1...
+    Installing RDoc documentation for terminal-notifier-1.5.1...
     ```
 
 1. Find out which directory holds the CasperJS binary:
@@ -70,8 +63,8 @@ tickets.
     
     ```bash
     crontab -e
-    ````
-    
+    ```
+
     This will open up the crontab, where you should indicate a frequency, 
     add the directories containing the CasperJS and terminal-notifier binaries
     to your PATH, and finally execute the `check` file using its absolute
@@ -83,6 +76,22 @@ tickets.
     ```
 
     In the above example, the script is run at 2pm every day. 
+
+    When you exiting editing the crontab, make sure you see a message like
+    this: 
+
+    ```bash
+    crontab: installing new crontab
+    ```
+
+
+## Troubleshooting
+
+> $ crontab -e
+> crontab: no crontab for ysim - using an empty one
+> crontab: "/usr/bin/vi" exited with status 1
+
+Add `export EDITOR=vim` to your `.bashrc`, source it, and try again. 
 
 
 ## References
