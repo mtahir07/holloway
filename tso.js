@@ -1,7 +1,7 @@
 var casper = require("casper").create();
 var fs = require("fs");
 
-var url = "http://www.tso.ca/tsoundcheck/default.aspx"
+var url = "http://www.tso.ca/en-ca/tsoundcheck/default.aspx"
 casper.start(url, function() {
   this.waitFor(function check() {
     this.echo("\nChecking the tsoundcheck site...\n");
