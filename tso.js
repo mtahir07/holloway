@@ -19,16 +19,17 @@ casper.start(url, function() {
     });
     this.echo(listingCount + " listings found.");
 
-    var ticketPrice = this.getHTML("#CheapTickets h2").trim();
-
     for (var c = 1 ; c <= listingCount ; c++) {
       var concertNumber = ".CheapTicketListing:nth-of-type(" + c + ") .eventInfo ";
 
       var titleSelector = concertNumber + ".title";
       var title = this.getHTML(titleSelector).trim().replace(/&amp;/g, '&');
 
-      var perfSelector = concertNumber + ".performances div";
-      var performances = this.getHTML(perfSelector).trim();
+      var detailsSelector = concertNumber + ".performances div:not(.text)";
+      var detailsText = this.fetchText(detailsSelector).trim();
+      var priceSelector = concertNumber + ".performances div.text strong";
+      var priceText = this.fetchText(priceSelector).trim();
+      var timeText = detailsText.replace(priceText, "");
 
       var buyTicketsSelector = concertNumber + "a";
       var buyUrl = this.getElementAttribute(buyTicketsSelector, "href");
@@ -37,7 +38,7 @@ casper.start(url, function() {
       var titleFile = "concerts/" + c + "/title.txt";
       fs.write(titleFile, title, 'w');
 
-      var concertDetails = performances + "\n" + ticketPrice;
+      var concertDetails = timeText + "\n" + priceText;
       var detailsFile = "concerts/" + c + "/performances.txt";
       fs.write(detailsFile, concertDetails, 'w');
 
