@@ -45,7 +45,6 @@ tickets.
 
         $ dirname `which terminal-notifier`
         /usr/local/bin
-    ```
 
 1. Create a cron job for the `check` script. 
 
