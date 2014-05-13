@@ -58,7 +58,7 @@ tickets.
     path (the `> /dev/null` just makes sure that you don't get mail every time
     the script runs): 
 
-        0 14 * * * PATH="$PATH:/usr/local/bin/:/Users/yiqing/.rvm/rubies/ruby-1.9.3-p392/bin/" ~/Repos/holloway/check > /dev/null
+        0 14 * * * PATH="$PATH:/usr/local/bin/" ~/Repos/holloway/check > /dev/null
 
     In the above example, the script is run at 2pm every day. 
 
