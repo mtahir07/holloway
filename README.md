@@ -70,9 +70,9 @@ tickets.
 
 ## Troubleshooting
 
->   $ crontab -e
->   crontab: no crontab for ysim - using an empty one
->   crontab: "/usr/bin/vi" exited with status 1
+    $ crontab -e
+    crontab: no crontab for ysim - using an empty one
+    crontab: "/usr/bin/vi" exited with status 1
 
 Add `export EDITOR=vim` to your `.bashrc`, source it, and try again. 
 
